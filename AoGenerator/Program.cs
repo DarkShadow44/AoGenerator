@@ -96,13 +96,69 @@ internal static class Program
     {
         Face[] faces =
         [
-            new Face
+            new()
             {
                 Name = "XPos",
                 AxisLeftRight = new Axis
                 {
                     OriginTopLeft = true,
                     Name = "Y"
+                },
+                AxisBottomTop = new Axis
+                {
+                    OriginTopLeft = false,
+                    Name = "Z"
+                }
+            },
+            new()
+            {
+                Name = "XNeg",
+                AxisLeftRight = new Axis
+                {
+                    OriginTopLeft = false,
+                    Name = "Y"
+                },
+                AxisBottomTop = new Axis
+                {
+                    OriginTopLeft = false,
+                    Name = "Z"
+                }
+            },
+            new()
+            {
+                Name = "ZPos",
+                AxisLeftRight = new Axis
+                {
+                    OriginTopLeft = true,
+                    Name = "X"
+                },
+                AxisBottomTop = new Axis
+                {
+                    OriginTopLeft = false,
+                    Name = "Y"
+                }
+            },
+            new()
+            {
+                Name = "YPos",
+                AxisLeftRight = new Axis
+                {
+                    OriginTopLeft = false,
+                    Name = "X"
+                },
+                AxisBottomTop = new Axis
+                {
+                    OriginTopLeft = false,
+                    Name = "Z"
+                }
+            },
+            new()
+            {
+                Name = "YNeg",
+                AxisLeftRight = new Axis
+                {
+                    OriginTopLeft = true,
+                    Name = "X"
                 },
                 AxisBottomTop = new Axis
                 {
