@@ -177,6 +177,7 @@ internal static class Program
             sb.AppendLine(face.MakeCorner("f4", false, true));
             sb.AppendLine(face.MakeCorner("f5", false, false));
             sb.AppendLine(face.MakeCorner("f6", true, false));
+            sb.AppendLine();
         }
 
         File.WriteAllText("/tmp/ramdisk/out.txt", sb.ToString());
