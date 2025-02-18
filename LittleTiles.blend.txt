@@ -1,0 +1,53 @@
+usually top left aligns with top left in blender (and so on) ZNeg is exception :(
+
+to calculate a line like
+> float f3 = (float)((double)f9 * renderMaxY * renderMaxZ + (double)f10 * renderMaxY * (1.0D - renderMaxZ) + (double)f11 * (1.0D - renderMaxY) * (1.0D - renderMaxZ) + (double)f8 * (1.0D - renderMaxY) * renderMaxZ);
+always (distance oposite corner to their wall) (dist1 * dist2)
+
+
+
+
+XNeg
+float f3 = (f9 * renderMaxY * renderMaxZ + f10 * renderMaxY * (1.0D - renderMaxZ) + f11 * (1.0D - renderMaxY) * (1.0D - renderMaxZ) + f8 * (1.0D - renderMaxY) * renderMaxZ);
+float f4 = (f9 * renderMaxY * renderMinZ + f10 * renderMaxY * (1.0D - renderMinZ) + f11 * (1.0D - renderMaxY) * (1.0D - renderMinZ) + f8 * (1.0D - renderMaxY) * renderMinZ);
+float f5 = (f9 * renderMinY * renderMinZ + f10 * renderMinY * (1.0D - renderMinZ) + f11 * (1.0D - renderMinY) * (1.0D - renderMinZ) + f8 * (1.0D - renderMinY) * renderMinZ);
+float f6 = (f9 * renderMinY * renderMaxZ + f10 * renderMinY * (1.0D - renderMaxZ) + f11 * (1.0D - renderMinY) * (1.0D - renderMaxZ) + f8 * (1.0D - renderMinY) * renderMaxZ);
+
+XNeg(generated)
+float f3 = (f9 * renderMaxY * renderMaxZ + f10 * renderMaxY * (1.0D - renderMaxZ) + f11 * (1.0D - renderMaxY) * (1.0D - renderMaxZ) + f8 * (1.0D - renderMaxY) * renderMaxZ)
+float f4 = (f9 * renderMaxY * renderMinZ + f10 * renderMaxY * (1.0D - renderMinZ) + f11 * (1.0D - renderMaxY) * (1.0D - renderMinZ) + f8 * (1.0D - renderMaxY) * renderMinZ)
+float f5 = (f9 * renderMinY * renderMinZ + f10 * renderMinY * (1.0D - renderMinZ) + f11 * (1.0D - renderMinY) * (1.0D - renderMinZ) + f8 * (1.0D - renderMinY) * renderMinZ)
+float f6 = (f9 * renderMinY * renderMaxZ + f10 * renderMinY * (1.0D - renderMaxZ) + f11 * (1.0D - renderMinY) * (1.0D - renderMaxZ) + f8 * (1.0D - renderMinY) * renderMaxZ)
+
+XPos
+float f3 = (f9 * (1.0D - renderMinY) * renderMaxZ + f10 * (1.0D - renderMinY) * (1.0D - renderMaxZ) + f11 * renderMinY * (1.0D - renderMaxZ) + f8 * renderMinY * renderMaxZ);
+float f4 = (f9 * (1.0D - renderMinY) * renderMinZ + f10 * (1.0D - renderMinY) * (1.0D - renderMinZ) + f11 * renderMinY * (1.0D - renderMinZ) + f8 * renderMinY * renderMinZ);
+float f5 = (f9 * (1.0D - renderMaxY) * renderMinZ + f10 * (1.0D - renderMaxY) * (1.0D - renderMinZ) + f11 * renderMaxY * (1.0D - renderMinZ) + f8 * renderMaxY * renderMinZ);
+float f6 = (f9 * (1.0D - renderMaxY) * renderMaxZ + f10 * (1.0D - renderMaxY) * (1.0D - renderMaxZ) + f11 * renderMaxY * (1.0D - renderMaxZ) + f8 * renderMaxY * renderMaxZ);
+
+XPos(generated)
+float f3 = (f9 * (1.0D - renderMinY) * renderMaxZ + f10 * (1.0D - renderMinY) * (1.0D - renderMaxZ) + f11 * renderMinY * (1.0D - renderMaxZ) + f8 * renderMinY * renderMaxZ)
+float f4 = (f9 * (1.0D - renderMinY) * renderMinZ + f10 * (1.0D - renderMinY) * (1.0D - renderMinZ) + f11 * renderMinY * (1.0D - renderMinZ) + f8 * renderMinY * renderMinZ)
+float f5 = (f9 * (1.0D - renderMaxY) * renderMinZ + f10 * (1.0D - renderMaxY) * (1.0D - renderMinZ) + f11 * renderMaxY * (1.0D - renderMinZ) + f8 * renderMaxY * renderMinZ)
+float f6 = (f9 * (1.0D - renderMaxY) * renderMaxZ + f10 * (1.0D - renderMaxY) * (1.0D - renderMaxZ) + f11 * renderMaxY * (1.0D - renderMaxZ) + f8 * renderMaxY * renderMaxZ)
+
+
+
+
+ZPos
+float f3 = (f8 * renderMaxY * (1.0D - renderMinX) + f9 * renderMaxY * renderMinX + f10 * (1.0D - renderMaxY) * renderMinX + f11 * (1.0D - renderMaxY) * (1.0D - renderMinX));
+float f4 = (f8 * renderMinY * (1.0D - renderMinX) + f9 * renderMinY * renderMinX + f10 * (1.0D - renderMinY) * renderMinX + f11 * (1.0D - renderMinY) * (1.0D - renderMinX));
+float f5 = (f8 * renderMinY * (1.0D - renderMaxX) + f9 * renderMinY * renderMaxX + f10 * (1.0D - renderMinY) * renderMaxX + f11 * (1.0D - renderMinY) * (1.0D - renderMaxX));
+float f6 = (f8 * renderMaxY * (1.0D - renderMaxX) + f9 * renderMaxY * renderMaxX + f10 * (1.0D - renderMaxY) * renderMaxX + f11 * (1.0D - renderMaxY) * (1.0D - renderMaxX));
+
+
+
+ZPos(generated)
+float f3 = (f9 * (1.0D - renderMinX) * renderMaxY + f10 * (1.0D - renderMinX) * (1.0D - renderMaxY) + f11 * renderMinX * (1.0D - renderMaxY) + f8 * renderMinX * renderMaxY)
+float f4 = (f9 * (1.0D - renderMinX) * renderMinY + f10 * (1.0D - renderMinX) * (1.0D - renderMinY) + f11 * renderMinX * (1.0D - renderMinY) + f8 * renderMinX * renderMinY)
+float f5 = (f9 * (1.0D - renderMaxX) * renderMinY + f10 * (1.0D - renderMaxX) * (1.0D - renderMinY) + f11 * renderMaxX * (1.0D - renderMinY) + f8 * renderMaxX * renderMinY)
+float f6 = (f9 * (1.0D - renderMaxX) * renderMaxY + f10 * (1.0D - renderMaxX) * (1.0D - renderMaxY) + f11 * renderMaxX * (1.0D - renderMaxY) + f8 * renderMaxX * renderMaxY)
+
+float cornerResult = cornerIn Calc
+
+logic: take inner corner in blender (cornerResult), distance to opposite of outer corner (cornerIn)
